@@ -12,8 +12,10 @@ An open-source desktop client for DeepSeek — configure your API key in the web
   <a href="https://github.com/usherwong/deepseek-desktop/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/usherwong/deepseek-desktop"></a>
 </p>
 
-<!-- 截图 / 演示 GIF 放这里 -->
-<!-- ![screenshot](docs/screenshot.png) -->
+<p align="center">
+  <img src="docs/assets/vision.png" alt="识图效果" width="46%" />
+  <img src="docs/assets/config.png" alt="配置界面" width="46%" />
+</p>
 
 ## 为什么用它 · Why
 

@@ -72,6 +72,11 @@
     }
     .steps li b { font-size: 16px; }
     .steps li span { color: var(--muted); font-size: 15px; }
+    .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding: 8px 0 24px; }
+    .shots figure { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; }
+    .shots img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
+    .shots figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); text-align: center; }
+    @media (max-width: 640px) { .shots { grid-template-columns: 1fr; } }
     .faq { padding: 12px 0 48px; }
     .faq .q { border-top: 1px solid var(--border); padding: 16px 0; }
     .faq .q:last-child { border-bottom: 1px solid var(--border); }
@@ -115,6 +120,18 @@
         <h3>② 无缝读图</h3>
         <p>粘贴或拖入图片，App 自动调用视觉模型把图看懂，再让 DeepSeek 回答你。截图、照片、含文字的图都行。</p>
       </div>
+    </div>
+
+    <h2 class="section-title">效果预览 · Preview</h2>
+    <div class="shots">
+      <figure>
+        <img src="assets/vision.png" alt="DeepSeek Desktop 识图效果：粘贴截图自动识别内容" loading="lazy" />
+        <figcaption>粘贴图片 → 自动识别（识图效果）</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/config.png" alt="DeepSeek Desktop 配置：DeepSeek (Image) 填百炼密钥" loading="lazy" />
+        <figcaption>设置 → 模型：填 DeepSeek + 百炼 key</figcaption>
+      </figure>
     </div>
 
     <h2 class="section-title">怎么用 · 3 步</h2>
