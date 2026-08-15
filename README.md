@@ -7,9 +7,9 @@ An open-source desktop client for DeepSeek — configure your API key in the web
 > ⚠️ **非官方客户端，基于开源 harness 构建**（Not an official DeepSeek product — built on the open-source DeepSeek Harness）。
 
 <p align="center">
-  <a href="https://github.com/usherwong/dsh-desktop/releases/latest"><img alt="GitHub release" src="https://img.shields.io/github/v/release/usherwong/dsh-desktop"></a>
-  <a href="https://github.com/usherwong/dsh-desktop/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/usherwong/dsh-desktop"></a>
-  <a href="https://github.com/usherwong/dsh-desktop/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/usherwong/dsh-desktop"></a>
+  <a href="https://github.com/usherwong/deepseek-desktop/releases/latest"><img alt="GitHub release" src="https://img.shields.io/github/v/release/usherwong/deepseek-desktop"></a>
+  <a href="https://github.com/usherwong/deepseek-desktop/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/usherwong/deepseek-desktop"></a>
+  <a href="https://github.com/usherwong/deepseek-desktop/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/usherwong/deepseek-desktop"></a>
 </p>
 
 <!-- 截图 / 演示 GIF 放这里 -->
@@ -34,7 +34,7 @@ An open-source desktop client for DeepSeek — configure your API key in the web
 
 ## 下载 · Download
 
-最新安装包见 **[Releases](https://github.com/usherwong/dsh-desktop/releases/latest)**：
+最新安装包见 **[Releases](https://github.com/usherwong/deepseek-desktop/releases/latest)**：
 
 | 平台 | 架构 | 文件 |
 |---|---|---|
@@ -60,8 +60,8 @@ An open-source desktop client for DeepSeek — configure your API key in the web
 
 ```bash
 # 1. 克隆本仓库（shell）
-git clone https://github.com/usherwong/dsh-desktop.git
-cd dsh-desktop
+git clone https://github.com/usherwong/deepseek-desktop.git
+cd deepseek-desktop
 
 # 2. 克隆 harness（含图片桥接的分支）
 git clone https://github.com/usherwong/deepseek-harness.git harness

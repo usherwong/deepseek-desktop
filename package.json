@@ -1,5 +1,5 @@
 {
-  "name": "dsh-desktop",
+  "name": "deepseek-desktop",
   "productName": "DeepSeek Desktop",
   "version": "0.1.0",
   "private": true,
@@ -17,10 +17,10 @@
   "author": {
     "name": "usherwong"
   },
-  "homepage": "https://github.com/usherwong/dsh-desktop",
+  "homepage": "https://github.com/usherwong/deepseek-desktop",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/usherwong/dsh-desktop.git"
+    "url": "git+https://github.com/usherwong/deepseek-desktop.git"
   },
   "main": "src/main/index.js",
   "scripts": {
