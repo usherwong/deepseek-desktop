@@ -77,6 +77,12 @@
     .shots img { width: 100%; border-radius: 8px; border: 1px solid var(--border); display: block; }
     .shots figcaption { margin-top: 10px; font-size: 14px; color: var(--muted); text-align: center; }
     @media (max-width: 640px) { .shots { grid-template-columns: 1fr; } }
+    .dl-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; padding: 8px 0 16px; }
+    .dl-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
+    .dl-card b { display: block; margin-bottom: 10px; font-size: 15px; }
+    .dl-link { display: inline-block; margin: 3px 6px 3px 0; padding: 7px 14px; border-radius: 8px; border: 1px solid var(--border); font-size: 14px; font-weight: 600; }
+    .dl-link:hover { border-color: var(--brand); color: var(--brand); text-decoration: none; }
+    @media (max-width: 640px) { .dl-grid { grid-template-columns: 1fr; } }
     .faq { padding: 12px 0 48px; }
     .faq .q { border-top: 1px solid var(--border); padding: 16px 0; }
     .faq .q:last-child { border-bottom: 1px solid var(--border); }
@@ -142,15 +148,24 @@
     </ol>
 
     <h2 class="section-title">下载 · Download</h2>
-    <div class="card">
-      <p>所有安装包在 <a href="https://github.com/usherwong/deepseek-desktop/releases/latest">Releases</a>：</p>
-      <ul style="margin:12px 0 0 20px;color:var(--muted);">
-        <li>macOS Apple Silicon → <code>DeepSeek Desktop-*-mac-arm64.dmg</code></li>
-        <li>macOS Intel → <code>DeepSeek Desktop-*-mac-x64.dmg</code></li>
-        <li>Windows → <code>DeepSeek Desktop-*-win-x64-setup.exe</code> / <code>-portable.exe</code></li>
-      </ul>
-      <p style="margin-top:12px;font-size:13px;">macOS 提示「无法验证开发者」时：右键 App → 打开；或 <code>xattr -dr com.apple.quarantine "/Applications/DeepSeek Desktop.app"</code>。</p>
+    <div class="dl-grid">
+      <div class="dl-card">
+        <b>macOS · Apple Silicon</b>
+        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.0-mac-arm64.dmg">.dmg</a>
+        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.0-mac-arm64.zip">.zip</a>
+      </div>
+      <div class="dl-card">
+        <b>macOS · Intel</b>
+        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.0-mac-x64.dmg">.dmg</a>
+        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.0-mac-x64.zip">.zip</a>
+      </div>
+      <div class="dl-card">
+        <b>Windows</b>
+        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.0-win-x64-setup.exe">安装版 .exe</a>
+        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.0-win-x64-portable.exe">绿色版 .exe</a>
+      </div>
     </div>
+    <p style="margin:0 0 24px;color:var(--muted);font-size:13px;">macOS 提示「无法验证开发者」时：右键 App → 打开；或 <code>xattr -dr com.apple.quarantine "/Applications/DeepSeek Desktop.app"</code>。</p>
 
     <h2 class="section-title" id="faq">FAQ</h2>
     <div class="faq">
