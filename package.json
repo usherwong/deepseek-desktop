@@ -1,7 +1,7 @@
 {
   "name": "deepseek-desktop",
   "productName": "DeepSeek Desktop",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": true,
   "description": "Desktop client for DeepSeek Harness: an Electron package of the dsh web UI for macOS and Windows",
   "keywords": [
