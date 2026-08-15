@@ -1,10 +1,12 @@
 # DeepSeek Desktop
 
-**无需终端，网页里配置即用 · 粘贴图片直接看懂**
+**No terminal needed · Configure in the web UI · Paste images and it understands them**
 
-An open-source desktop client for DeepSeek — configure your API key in the web UI (no terminal), chat in a native app, and paste images for seamless vision understanding.
+An open-source desktop client for DeepSeek — set your API keys in a web settings page (no terminal), chat in a native app, and paste images for seamless vision understanding.
 
-> ⚠️ **非官方客户端，基于开源 harness 构建**（Not an official DeepSeek product — built on the open-source DeepSeek Harness）。
+> ⚠️ **Not an official DeepSeek product** — built on the open-source [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness).
+
+[📖 中文说明](README.zh.md)
 
 <p align="center">
   <a href="https://github.com/usherwong/deepseek-desktop/releases/latest"><img alt="GitHub release" src="https://img.shields.io/github/v/release/usherwong/deepseek-desktop"></a>
@@ -13,95 +15,103 @@ An open-source desktop client for DeepSeek — configure your API key in the web
 </p>
 
 <p align="center">
-  <img src="docs/assets/vision.png" alt="识图效果" width="46%" />
-  <img src="docs/assets/config.png" alt="配置界面" width="46%" />
+  <img src="docs/assets/vision.png" alt="Paste an image and it is understood" width="46%" />
+  <img src="docs/assets/imagemodel.png" alt="DeepSeek (Image) model needs two API keys" width="46%" />
 </p>
 
-## 为什么用它 · Why
+## Why
 
-普通用户用 DeepSeek 有两个痛点，这个客户端直接解决：
+Two pain points solved:
 
-1. **免终端配置**：不用敲命令、不用配环境变量，打开 App 在「设置 → 模型」里填 API key 就能用。
-2. **无缝读图**：直接粘贴/拖入图片，App 自动调用视觉模型把图看懂，再让 DeepSeek 回答你。
+1. **No terminal** — no commands, no environment variables. Fill in API keys in **Settings → Models**.
+2. **Paste images** — paste or drag an image; a vision model reads it, then DeepSeek answers you.
 
-> 底层原理：内置一个「图片→文字」桥接（`deepseek-image` 提供方），把图片先交给视觉模型（默认百炼 `qwen3.7-plus`）转成描述，再喂给纯文本 DeepSeek。
+## How image understanding works
 
-## 特性 · Features
+Image recognition uses a **vision model** (`qwen3.7-plus` from Qwen / Alibaba Bailian — the same model family qwen-mm-plugins uses). It runs under the **`DeepSeek (Image)`** provider.
 
-- ✅ 原生桌面应用（Electron），macOS + Windows
-- ✅ 网页式配置：API key、模型、baseURL 全在 GUI 里填
-- ✅ **粘贴图片即可识图**（截图、照片、含文字的图都能读）
-- ✅ 内置 qwen-mm-plugins 媒体工具（OCR / 视觉问答 / 视频理解 / 语音转写）
-- ✅ 会话历史、子智能体、代码模式等完整 harness 能力
+So to use images, you must:
 
-## 下载 · Download
+- Select the **`DeepSeek (Image)`** model, and
+- Fill in **two API keys** in that model's settings:
+  1. a **DeepSeek API key** (for the text model), and
+  2. a **Bailian (DashScope) API key** (for the vision model).
 
-> 最新版本 **v0.1.8** · [查看全部 Releases](https://github.com/usherwong/deepseek-desktop/releases)
+> Text-only chat needs only the DeepSeek key. Image understanding needs **both** keys.
 
-| 平台 | 架构 | 下载 |
+## Features
+
+- ✅ Native desktop app (Electron), macOS + Windows
+- ✅ Web-style configuration: API keys, models, baseURL — all in the GUI
+- ✅ **Paste images and it understands them** (screenshots, photos, images with text)
+- ✅ Bundled qwen-mm-plugins media tools (OCR / visual Q&A / video understanding / speech-to-text)
+- ✅ Full harness features: session history, sub-agents, code mode, …
+
+## Download
+
+> Latest release — see [all releases](https://github.com/usherwong/deepseek-desktop/releases)
+
+| Platform | Arch | Download |
 |---|---|---|
-| macOS（Apple Silicon） | arm64 | [.dmg](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-arm64.dmg) · [.zip](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-arm64.zip) |
-| macOS（Intel） | x64 | [.dmg](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-x64.dmg) · [.zip](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-x64.zip) |
-| Windows | x64 | [安装版 .exe](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-win-x64-setup.exe) · [绿色版 .exe](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-win-x64-portable.exe) |
+| macOS (Apple Silicon) | arm64 | [.dmg](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-arm64.dmg) · [.zip](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-arm64.zip) |
+| macOS (Intel) | x64 | [.dmg](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-x64.dmg) · [.zip](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-x64.zip) |
+| Windows | x64 | [Installer .exe](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-win-x64-setup.exe) · [Portable .exe](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-win-x64-portable.exe) |
 
-> macOS 首次打开若提示「无法验证开发者」：**右键点击 App → 打开**，或在终端执行
-> `xattr -dr com.apple.quarantine "/Applications/DeepSeek Desktop.app"`。
-> （正式公证签名需要 Apple Developer 账号，暂未提供。）
+> macOS "cannot verify the developer" on first launch? **Right-click the app → Open**, or run
+> `xattr -dr com.apple.quarantine "/Applications/DeepSeek Desktop.app"`.
+> (Proper notarization requires an Apple Developer account — not yet provided.)
 
-## 快速开始 · Quick Start
+## Quick start
 
-1. 打开 App，进入 **设置 → 模型**；
-2. 在 **DeepSeek** 卡片填 DeepSeek API key；
-3. 在 **DeepSeek (Image)** 卡片填百炼（DashScope）API key —— 用于识图；
-4. 新建会话，把模型切到 **DeepSeek (Image)**，粘贴图片即可识图。
+1. Open the app → **Settings → Models**.
+2. **DeepSeek**: fill in your DeepSeek API key.
+3. **DeepSeek (Image)**: fill in your DeepSeek API key **and** your Bailian (DashScope) API key.
+4. New chat → switch the model to **DeepSeek (Image)** → paste an image.
 
-> 只有「识图」需要百炼 key；只用文字聊天填 DeepSeek key 即可。
-> 百炼 key 会同时同步给内置的媒体工具（OCR / 视频 / 语音），无需重复配置。
-
-## 从源码构建 · Build
+## Build from source
 
 ```bash
-# 1. 克隆本仓库（shell）
+# 1. Clone this repo (the shell)
 git clone https://github.com/usherwong/deepseek-desktop.git
 cd deepseek-desktop
 
-# 2. 克隆 harness（含图片桥接的分支）
+# 2. Clone the harness (the image-bridge branch)
 git clone https://github.com/usherwong/deepseek-harness.git harness
 cd harness && git checkout image-bridge && cd ..
 
-# 3. 安装 shell 依赖
+# 3. Install shell dependencies
 npm ci
 
-# 4. 从源码构建运行时 + 打包
+# 4. Build the runtime from source + package
 node scripts/prepare-runtime.mjs --mode source --repo harness
-npx electron-builder --mac --arm64   # 或 --mac --x64 / --win --x64
+npx electron-builder --mac --arm64   # or --mac --x64 / --win --x64
 ```
 
-## 目录结构 · Layout
+## Layout
 
 ```
 .
-├── src/            Electron 主进程 + preload
-├── scripts/        运行时打包脚本（prepare-runtime.mjs）
-├── build/          图标、签名、entitlements
-├── harness.json    harness 构建配置（source 模式指向 harness/）
-├── .github/        CI（自动出 mac arm64/x64 + Windows 安装包）
-└── docs/           官网落地页 + 运营方案
+├── src/            Electron main process + preload
+├── scripts/        runtime packaging (prepare-runtime.mjs)
+├── build/          icon, signing, entitlements
+├── harness.json    harness build config (source mode → harness/)
+├── .github/        CI (macOS arm64/x64 + Windows installers)
+└── docs/           landing page + operations playbook
 ```
 
 ## FAQ
 
-**Q: 为什么识图要单独填一个百炼 key？**
-DeepSeek 本身是纯文本模型，不会看图。App 用百炼的视觉模型（`qwen3.7-plus`）先把图转成文字描述，再交给 DeepSeek。
+**Q: Why do I need a separate Bailian key for images?**
+DeepSeek is text-only — it cannot see images. The app uses a Bailian vision model (`qwen3.7-plus`) to turn the image into a text description first, then DeepSeek answers.
 
-**Q: 不填百炼 key 能用吗？**
-能用，但只能文字聊天，粘贴图片会提示缺少视觉模型 key。
+**Q: Can I use it without the Bailian key?**
+Yes, but only for text chat. Pasting an image will report a missing vision-model key.
 
-**Q: 会和官方抢生意 / 有版权问题吗？**
-这是第三方开源客户端，只调用你**自己的** API key；README 已注明「非官方客户端」。
+**Q: Is this official?**
+No. It is a third-party open-source client that only calls **your own** API keys.
 
 ## License
 
 [MIT](./LICENSE) © usherwong
 
-本项目基于开源的 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 构建，其版权归原作者所有。
+Built on the open-source [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness), whose copyright belongs to its original authors.
