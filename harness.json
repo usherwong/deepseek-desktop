@@ -1,0 +1,25 @@
+{
+  "$comment": [
+    "Which DeepSeek Harness build the desktop client wraps.",
+    "'mode' selects how scripts/prepare-runtime.mjs assembles runtime/dsh:",
+    "  npm    - npm install the published @deepseek-ai/dsh at 'npm.version' (no image bridge)",
+    "  source - pnpm build + pnpm deploy a harness checkout (includes the image bridge)",
+    "'source.repoRoot' is relative to this repo; CI checks the fork out there before",
+    "a source build. 'source.repo'/'source.ref' record what CI clones.",
+    "'node.range' picks the Node.js major bundled next to the harness."
+  ],
+  "mode": "source",
+  "npm": {
+    "package": "@deepseek-ai/dsh",
+    "version": "0.1.0-rc.6"
+  },
+  "source": {
+    "repoRoot": "harness",
+    "filter": "@deepseek-ai/dsh",
+    "repo": "https://github.com/usherwong/deepseek-harness.git",
+    "ref": "image-bridge"
+  },
+  "node": {
+    "range": "22"
+  }
+}
