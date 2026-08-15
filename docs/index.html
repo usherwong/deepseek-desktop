@@ -154,18 +154,18 @@
     <div class="dl-grid">
       <div class="dl-card">
         <b>macOS · Apple Silicon</b>
-        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-arm64.dmg">.dmg</a>
-        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-arm64.zip">.zip</a>
+        <a class="dl-link" id="dl-mac-arm64-dmg" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-arm64.dmg">.dmg</a>
+        <a class="dl-link" id="dl-mac-arm64-zip" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-arm64.zip">.zip</a>
       </div>
       <div class="dl-card">
         <b>macOS · Intel</b>
-        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-x64.dmg">.dmg</a>
-        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-x64.zip">.zip</a>
+        <a class="dl-link" id="dl-mac-x64-dmg" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-x64.dmg">.dmg</a>
+        <a class="dl-link" id="dl-mac-x64-zip" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-x64.zip">.zip</a>
       </div>
       <div class="dl-card">
         <b>Windows</b>
-        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-win-x64-setup.exe">安装版 .exe</a>
-        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-win-x64-portable.exe">绿色版 .exe</a>
+        <a class="dl-link" id="dl-win-setup" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-win-x64-setup.exe">安装版 .exe</a>
+        <a class="dl-link" id="dl-win-portable" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-win-x64-portable.exe">绿色版 .exe</a>
       </div>
     </div>
     <p style="margin:0 0 24px;color:var(--muted);font-size:13px;">macOS 提示「无法验证开发者」时：右键 App → 打开；或 <code>xattr -dr com.apple.quarantine "/Applications/DeepSeek Desktop.app"</code>。</p>
@@ -186,15 +186,32 @@
   </footer>
 
   <script>
-    // 自动拉取最新 Release 版本号显示到下载区。
+    // 自动拉取最新 Release：更新版本号 + 填充下载链接（按文件名后缀匹配）。
+    var BTN_MAP = {
+      'mac-arm64.dmg': 'dl-mac-arm64-dmg',
+      'mac-arm64.zip': 'dl-mac-arm64-zip',
+      'mac-x64.dmg': 'dl-mac-x64-dmg',
+      'mac-x64.zip': 'dl-mac-x64-zip',
+      'win-x64-setup.exe': 'dl-win-setup',
+      'win-x64-portable.exe': 'dl-win-portable',
+    }
     fetch('https://api.github.com/repos/usherwong/deepseek-desktop/releases/latest')
       .then(function (r) { return r.json() })
       .then(function (d) {
         if (d && d.tag_name) {
           document.getElementById('latest-version').textContent = d.tag_name
         }
+        (d.assets || []).forEach(function (a) {
+          for (var suffix in BTN_MAP) {
+            if (a.name.indexOf(suffix) === a.name.length - suffix.length) {
+              var el = document.getElementById(BTN_MAP[suffix])
+              if (el) el.href = a.browser_download_url
+              break
+            }
+          }
+        })
       })
-      .catch(function () { /* 保留默认 v0.1.8 */ })
+      .catch(function () { /* 保留硬编码的 0.1.8 兜底 */ })
   </script>
 </body>
 </html>
