@@ -17,7 +17,7 @@ jobs:
           - os: macos-14            # Apple Silicon
             arch: arm64
             platform: mac
-          - os: macos-13            # Intel
+          - os: macos-15-intel      # Intel (macos-13 is deprecated)
             arch: x64
             platform: mac
           - os: windows-latest
