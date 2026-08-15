@@ -82,6 +82,8 @@
     .dl-card b { display: block; margin-bottom: 10px; font-size: 15px; }
     .dl-link { display: inline-block; margin: 3px 6px 3px 0; padding: 7px 14px; border-radius: 8px; border: 1px solid var(--border); font-size: 14px; font-weight: 600; }
     .dl-link:hover { border-color: var(--brand); color: var(--brand); text-decoration: none; }
+    .latest-ver { color: var(--muted); font-size: 14px; margin: 0 0 14px; }
+    .latest-ver b { color: var(--fg); }
     @media (max-width: 640px) { .dl-grid { grid-template-columns: 1fr; } }
     .faq { padding: 12px 0 48px; }
     .faq .q { border-top: 1px solid var(--border); padding: 16px 0; }
@@ -148,21 +150,22 @@
     </ol>
 
     <h2 class="section-title">下载 · Download</h2>
+    <p class="latest-ver">最新版本：<b id="latest-version">v0.1.8</b>（自动从 GitHub 读取）</p>
     <div class="dl-grid">
       <div class="dl-card">
         <b>macOS · Apple Silicon</b>
-        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.7-mac-arm64.dmg">.dmg</a>
-        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.7-mac-arm64.zip">.zip</a>
+        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-arm64.dmg">.dmg</a>
+        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-arm64.zip">.zip</a>
       </div>
       <div class="dl-card">
         <b>macOS · Intel</b>
-        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.7-mac-x64.dmg">.dmg</a>
-        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.7-mac-x64.zip">.zip</a>
+        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-x64.dmg">.dmg</a>
+        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-x64.zip">.zip</a>
       </div>
       <div class="dl-card">
         <b>Windows</b>
-        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.7-win-x64-setup.exe">安装版 .exe</a>
-        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.7-win-x64-portable.exe">绿色版 .exe</a>
+        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-win-x64-setup.exe">安装版 .exe</a>
+        <a class="dl-link" href="https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-win-x64-portable.exe">绿色版 .exe</a>
       </div>
     </div>
     <p style="margin:0 0 24px;color:var(--muted);font-size:13px;">macOS 提示「无法验证开发者」时：右键 App → 打开；或 <code>xattr -dr com.apple.quarantine "/Applications/DeepSeek Desktop.app"</code>。</p>
@@ -181,5 +184,17 @@
       DeepSeek Desktop · 非官方客户端，基于开源 <a href="https://github.com/deepseek-ai/deepseek-harness">DeepSeek Harness</a> 构建 · <a href="https://github.com/usherwong/deepseek-desktop">GitHub</a> · MIT License
     </div>
   </footer>
+
+  <script>
+    // 自动拉取最新 Release 版本号显示到下载区。
+    fetch('https://api.github.com/repos/usherwong/deepseek-desktop/releases/latest')
+      .then(function (r) { return r.json() })
+      .then(function (d) {
+        if (d && d.tag_name) {
+          document.getElementById('latest-version').textContent = d.tag_name
+        }
+      })
+      .catch(function () { /* 保留默认 v0.1.8 */ })
+  </script>
 </body>
 </html>

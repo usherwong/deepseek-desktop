@@ -36,13 +36,13 @@ An open-source desktop client for DeepSeek — configure your API key in the web
 
 ## 下载 · Download
 
-> 最新版本 **v0.1.7** · [查看全部 Releases](https://github.com/usherwong/deepseek-desktop/releases)
+> 最新版本 **v0.1.8** · [查看全部 Releases](https://github.com/usherwong/deepseek-desktop/releases)
 
 | 平台 | 架构 | 下载 |
 |---|---|---|
-| macOS（Apple Silicon） | arm64 | [.dmg](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.7-mac-arm64.dmg) · [.zip](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.7-mac-arm64.zip) |
-| macOS（Intel） | x64 | [.dmg](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.7-mac-x64.dmg) · [.zip](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.7-mac-x64.zip) |
-| Windows | x64 | [安装版 .exe](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.7-win-x64-setup.exe) · [绿色版 .exe](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.7-win-x64-portable.exe) |
+| macOS（Apple Silicon） | arm64 | [.dmg](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-arm64.dmg) · [.zip](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-arm64.zip) |
+| macOS（Intel） | x64 | [.dmg](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-x64.dmg) · [.zip](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-mac-x64.zip) |
+| Windows | x64 | [安装版 .exe](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-win-x64-setup.exe) · [绿色版 .exe](https://github.com/usherwong/deepseek-desktop/releases/latest/download/DeepSeek.Desktop-0.1.8-win-x64-portable.exe) |
 
 > macOS 首次打开若提示「无法验证开发者」：**右键点击 App → 打开**，或在终端执行
 > `xattr -dr com.apple.quarantine "/Applications/DeepSeek Desktop.app"`。
