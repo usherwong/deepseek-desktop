@@ -85,6 +85,7 @@ class HarnessProcess extends EventEmitter {
     delete env.NODE_OPTIONS
     env.PATH = this.options.userPath
     env.DSH_DESKTOP = '1'
+    if (this.options.appVersion !== undefined) env.DSH_DESKTOP_VERSION = this.options.appVersion
     if (this.options.dshHome !== null) env.DSH_HOME = this.options.dshHome
     if (this.options.useElectronNode) env.ELECTRON_RUN_AS_NODE = '1'
 
